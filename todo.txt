@@ -1,0 +1,8 @@
+apis:
+createQuest: post
+getQuest: get
+createQuiz: post
+getQuizzes: get
+
+question: qText,qType,options,correctOpt,solution,d
+quiz: title,marks,negativeMarks,questions
