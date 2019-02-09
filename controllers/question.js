@@ -2,7 +2,6 @@ Question = require('../models/question');
 
 // get questions
 exports.index = function (req, res) {
-    console.log("hie");
     Question.get(function (err, question) {
         if (err) {
             res.json({

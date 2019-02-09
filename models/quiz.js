@@ -7,9 +7,14 @@ var QuizSchema = new mongoose.Schema(
      title: String,
      marks: Number,
      negativeMarks: Number,
-     questions_id: { type: ObjectId, ref: "QuestionCollection" }  
+     questions: [
+      { 
+        q_id: {type: ObjectId, ref: "QuestionCollection" }
+      }
+     ] 
   });
 
-const QuizCollection = mongoose.model('Quiz', QuizSchema);
-
-module.exports = QuizCollection
+var Quiz = module.exports = mongoose.model('Quiz',QuizSchema);
+module.exports.get = function (callback, limit) {
+    Quiz.find(callback).limit(limit);
+}

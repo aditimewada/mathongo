@@ -15,8 +15,10 @@ var db = mongoose.connection;
 var port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => res.send('Hello World with Express'));
-let apiRoutes = require("./routes/questionRoute");
-app.use('/api', apiRoutes);
+let questionRoutes = require("./routes/questionRoute");
+let quizRoutes = require("./routes/quizRoute");
+app.use('/api', questionRoutes);
+app.use('/q', quizRoutes);
 app.listen(port, function () {
      console.log("Running RestHub on port " + port);
 });
