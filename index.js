@@ -13,9 +13,10 @@ mongoose.connect('mongodb://localhost/mathongo');
 var db = mongoose.connection;
 
 var port = process.env.PORT || 8080;
-// Send message for default URL
+
 app.get('/', (req, res) => res.send('Hello World with Express'));
-// Launch app to listen to specified port
+let apiRoutes = require("./routes/questionRoute");
+app.use('/api', apiRoutes);
 app.listen(port, function () {
      console.log("Running RestHub on port " + port);
 });

@@ -12,6 +12,11 @@ var QuestionSchema = new mongoose.Schema(
       difficulty: Number
   });
 
-const QuestionCollection = mongoose.model('Question', QuestionSchema);
+// const QuestionCollection = mongoose.model('Question', QuestionSchema);
 
-module.exports = QuestionCollection
+// module.exports = QuestionCollection
+
+var Question = module.exports = mongoose.model('Question', QuestionSchema);
+module.exports.get = function (callback, limit) {
+    Question.find(callback).limit(limit);
+}
