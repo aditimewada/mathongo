@@ -1,3 +1,6 @@
-<p>
-  get-questions works!
-</p>
+<div style="padding:30px">
+  <h3>QUESTIONS:-</h3>
+  <li *ngFor="let question of questions">
+    <h5>{{question.questionText}}</h5>
+  </li>
+</div>

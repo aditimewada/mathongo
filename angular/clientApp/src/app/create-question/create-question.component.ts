@@ -12,13 +12,7 @@ export class CreateQuestionComponent implements OnInit {
   data: any;
   questions: any;
   ngOnInit() {
-    this.adminService
-      .getQuestions()
-      .subscribe((response: Response) => {
-        this.data = response;
-        this.questions = this.data.data;
-        console.log(this.questions);
-      });
+    
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminService} from '../admin.service';
 
 @Component({
   selector: 'app-get-questions',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetQuestionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adminService: AdminService) { }
+  data: any;
+  questions: any;
 
   ngOnInit() {
+    this.adminService
+      .getQuestions()
+      .subscribe((response: Response) => {
+        this.data = response;
+        this.questions = this.data.data;
+        console.log(this.questions);
+      });
   }
 
 }
