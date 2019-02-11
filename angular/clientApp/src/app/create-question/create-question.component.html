@@ -1,0 +1,36 @@
+<div>
+  <h3>Create Question</h3>
+  <div class="form-group col-md-6 pb-10">
+    <label for="text">Question Text</label>
+    <textarea class="form-control" rows="2" id="description" placeholder="write here..." [(ngModel)]="question.questionText"></textarea>
+   </div>
+   <div class="form-group col-md-6 pb-10">
+     <label *ngFor="let type of types; let i = index">
+    <input type="checkbox" (click)="questionTypeFunct(i)" [checked]="type.check"/>
+    {{type.name}}
+  </label>
+   </div>
+   <div class="form-group col-md-6 pb-10">
+    <label for="text">Number Of Options</label>
+    <input class="form-control"  placeholder="write here..." [(ngModel)]="noOfOptions">
+   <button (click)="numOptions()">Enter</button>
+   </div>
+   <div class="form-group col-md-6 pb-10">
+     <li   *ngFor="let option of options ; let i = index">
+       <input type="checkbox" (click)="single ? singleAnswer(i) : multipleAnswers(i)" [checked]="selectedAnswer[i]"/>
+       <input style="display:inline-block; margin:10px"   placeholder="write here..." [(ngModel)]="question.options[i]"/>
+     </li>
+   </div>
+   <div class="form-group col-md-6 pb-10">
+    <label for="text">Solution</label>
+    <textarea class="form-control" rows="3" id="description" placeholder="write here..." [(ngModel)]="question.solution"></textarea>
+   </div>
+   <div class="form-group col-md-6 pb-10">
+    <label for="text">Difficulty</label>
+    <input class="form-control"  placeholder="write here..." [(ngModel)]="question.difficulty">
+   </div>
+   <div class="form-group col-md-6 pb-10">
+   <button (click)="submit()">Submit</button>
+   </div>
+   
+</div>

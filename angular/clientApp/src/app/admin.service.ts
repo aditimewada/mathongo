@@ -19,4 +19,15 @@ export class AdminService {
         return <any>response;
       }));
     }
+
+    addQuestion(questionDetails){
+        return this.http
+      .post(
+        this.serverUrl + 'api/questions',
+        questionDetails
+      )
+      .pipe(map((response: Response) => {
+        return <any>response;
+      }));
+    }
 }

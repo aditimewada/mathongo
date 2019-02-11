@@ -6,8 +6,8 @@ var QuestionSchema = new mongoose.Schema(
   {
       questionText: String,
       questionType: String,
-      option: String,
-      correctOption: Number,
+      option: [String],
+      correctOption: [Number],
       solution: String,
       difficulty: Number
   });

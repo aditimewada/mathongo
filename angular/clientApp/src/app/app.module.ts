@@ -10,6 +10,7 @@ import { GetQuizzesComponent } from './get-quizzes/get-quizzes.component';
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 import { AdminService } from './admin.service';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     AdminService
